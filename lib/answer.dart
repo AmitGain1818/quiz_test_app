@@ -11,7 +11,7 @@ class Answers extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      margin: EdgeInsets.all(10),
+      margin: EdgeInsets.all(5),
       child: RaisedButton(
         color: Colors.green,
         textColor: Colors.white,
