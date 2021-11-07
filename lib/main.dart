@@ -230,6 +230,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
+          backgroundColor: Colors.cyan,
           centerTitle: true,
           title: Text('Quiz Test App'),
         ),
