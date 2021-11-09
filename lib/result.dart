@@ -2,20 +2,21 @@ import 'package:flutter/material.dart';
 
 class Result extends StatelessWidget {
   final int resultScore;
+  final VoidCallback resetHandler;
 
-  Result(this.resultScore);
+  Result(this.resultScore, this.resetHandler);
 
   String get resultPhrase {
     String resultText = 'done';
 
-    if (resultScore <= 65) {
-      resultText = 'your are fail-${resultScore}';
-    } else if (resultScore <= 95) {
-      resultText = 'your are average-${resultScore}';
-    } else if (resultScore <= 105) {
-      resultText = 'you are good-${resultScore}';
+    if (resultScore <= 8) {
+      resultText = 'Your Are Fail.\n Your Score-${resultScore}';
+    } else if (resultScore <= 10) {
+      resultText = 'Your Are Average.\n Your Score-${resultScore}';
+    } else if (resultScore <= 15) {
+      resultText = 'You Are Good.\n Your Score-${resultScore}';
     } else {
-      resultText = 'you are excellent-${resultScore}';
+      resultText = 'You Are Excellent.\n Your Score-${resultScore}';
     }
     return resultText;
   }
@@ -25,10 +26,20 @@ class Result extends StatelessWidget {
     return Center(
       child: Column(
         children: [
-          Text(
-            resultPhrase,
-            style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
-            textAlign: TextAlign.center,
+          Column(
+            children: [
+              Text(
+                resultPhrase,
+                style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
+                textAlign: TextAlign.center,
+              ),
+              FlatButton(
+                color: Colors.blue,
+                textColor: Colors.white,
+                onPressed: resetHandler,
+                child: Text('Restart Quiz'),
+              ),
+            ],
           ),
         ],
       ),
